@@ -1,0 +1,72 @@
+[
+  {
+    "id": "mountain-1",
+    "title": "Mountain Morning",
+    "category": "nature",
+    "date": "2026-09-30",
+    "path": "assets/photos/nature/mountain-morning.png",
+    "remote": "https://images.unsplash.com/photo-1576081985139-7d67f9fb158c?auto=format&fit=crop&fm=jpg&q=82&w=1400",
+    "author": "Dave Drury",
+    "source": "https://unsplash.com/photos/landscape-photography-of-mountain-YUEdlxN-jNs"
+  },
+  {
+    "id": "city-1",
+    "title": "City Lights",
+    "category": "city",
+    "date": "2026-09-29",
+    "path": "assets/photos/city/city-lights.png",
+    "remote": "https://images.unsplash.com/photo-1534615303368-5434f89a959b?auto=format&fit=crop&fm=jpg&q=82&w=1400",
+    "author": "lf.Franciz",
+    "source": "https://unsplash.com/photos/city-skyline-at-night-C32teDteN1I"
+  },
+  {
+    "id": "ocean-1",
+    "title": "Ocean Escape",
+    "category": "travel",
+    "date": "2026-09-28",
+    "path": "assets/photos/travel/ocean-escape.png",
+    "remote": "https://images.unsplash.com/photo-1559305289-4c31700ba9cb?auto=format&fit=crop&fm=jpg&q=82&w=1400",
+    "author": "felfin",
+    "source": "https://unsplash.com/photos/ocean-photography-5MV818tzxeo"
+  },
+  {
+    "id": "forest-1",
+    "title": "Forest Trail",
+    "category": "nature",
+    "date": "2026-09-27",
+    "path": "assets/photos/nature/forest-trail.png",
+    "remote": "https://images.unsplash.com/photo-1742669005049-3776cee42883?auto=format&fit=crop&fm=jpg&q=82&w=1400",
+    "author": "Peter Robbins",
+    "source": "https://unsplash.com/photos/a-winding-trail-leads-through-a-lush-green-forest-iJs3ETIkts4"
+  },
+  {
+    "id": "museum-1",
+    "title": "Modern Lines",
+    "category": "architecture",
+    "date": "2026-09-26",
+    "path": "assets/photos/architecture/modern-lines.png",
+    "remote": "https://images.unsplash.com/photo-1765774909821-14e1f21b0f7b?auto=format&fit=crop&fm=jpg&q=82&w=1400",
+    "author": "Miguel Joya",
+    "source": "https://unsplash.com/photos/modern-white-building-with-unique-architectural-design-n3yQ1VXGRzU"
+  },
+  {
+    "id": "flowers-1",
+    "title": "Color Garden",
+    "category": "flowers",
+    "date": "2026-09-25",
+    "path": "assets/photos/flowers/color-garden.png",
+    "remote": "https://images.unsplash.com/photo-1743772023783-99d44248bd21?auto=format&fit=crop&fm=jpg&q=82&w=1400",
+    "author": "Geoffrey Busse",
+    "source": "https://unsplash.com/photos/vibrant-tulips-bloom-in-a-beautiful-colorful-garden-Jaj5TaBHmSA"
+  },
+  {
+    "id": "beach-1",
+    "title": "Sunset Beach",
+    "category": "travel",
+    "date": "2026-09-24",
+    "path": "assets/photos/travel/sunset-beach.png",
+    "remote": "https://images.unsplash.com/photo-1721002335874-16ca86e39cd0?auto=format&fit=crop&fm=jpg&q=82&w=1400",
+    "author": "Leo Yan",
+    "source": "https://unsplash.com/photos/a-beach-at-sunset-with-palm-trees-in-the-background-2u-FcA_J0rU"
+  }
+]

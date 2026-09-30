@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aura Gallery — a modern phone-style photo gallery built for CodeAlpha Frontend Development Internship.">
+  <title>Aura Gallery | CodeAlpha Task 1</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-shell">
+  <header class="topbar">
+    <button class="icon-btn mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button>
+    <a class="logo" href="#" data-view="all"><span class="logo-mark">✦</span><span>Aura<span>Gallery</span></span></a>
+    <div class="top-search">
+      <span>⌕</span><input id="searchInput" type="search" placeholder="Search photos, albums..." aria-label="Search photos">
+      <kbd>⌘ K</kbd>
+    </div>
+    <div class="top-actions">
+      <button class="icon-btn" id="themeBtn" title="Toggle theme">◐</button>
+      <label class="upload-btn"><span>＋</span> Add photos<input id="fileInput" type="file" accept="image/png,image/jpeg,image/webp" multiple hidden></label>
+      <div class="avatar">S</div>
+    </div>
+  </header>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-top">
+      <p class="side-label">LIBRARY</p>
+      <button class="side-item active" data-view="all"><span>▦</span><span>All Photos</span><b id="allCount">0</b></button>
+      <button class="side-item" data-view="favorites"><span>♡</span><span>Favorites</span><b id="favCount">0</b></button>
+      <button class="side-item" data-view="recent"><span>◷</span><span>Recently Added</span></button>
+      <button class="side-item" data-view="screenshots"><span>▣</span><span>Screenshots</span></button>
+      <button class="side-item" data-view="trash"><span>⌫</span><span>Recycle Bin</span><b id="trashCount">0</b></button>
+    </div>
+    <div class="sidebar-albums">
+      <div class="album-head"><p class="side-label">ALBUMS</p><button id="newAlbumBtn" title="Create album">＋</button></div>
+      <div id="albumList"></div>
+      <button class="side-item create-album" id="newAlbumSide"><span>＋</span><span>New album</span></button>
+    </div>
+    <div class="sidebar-footer">
+      <div class="storage"><div class="storage-row"><span>Storage</span><span>Local</span></div><div class="storage-bar"><i></i></div><small>Your gallery stays in this browser.</small></div>
+      <button class="side-item"><span>⚙</span><span>Settings</span></button>
+    </div>
+  </aside>
+
+  <div class="overlay" id="overlay"></div>
+
+  <main class="main">
+    <div class="content-head">
+      <div>
+        <p class="eyebrow">PERSONAL PHOTO LIBRARY</p>
+        <h1 id="pageTitle">All Photos</h1>
+        <p id="pageSubtitle">Your memories, beautifully organized.</p>
+      </div>
+      <div class="head-actions">
+        <button class="tool-btn" id="selectBtn">Select</button>
+        <button class="tool-btn" id="sortBtn">Newest ▾</button>
+        <button class="tool-btn icon-only" id="layoutBtn" title="Toggle layout">▦</button>
+      </div>
+    </div>
+
+    <div class="selection-bar" id="selectionBar">
+      <span><strong id="selectedCount">0</strong> selected</span>
+      <div>
+        <button id="favoriteSelected">♡ Favorite</button>
+        <button id="albumSelected">＋ Album</button>
+        <button id="trashSelected" class="danger">⌫ Trash</button>
+        <button id="cancelSelect">Cancel</button>
+      </div>
+    </div>
+
+    <div class="album-hero" id="albumHero">
+      <div class="album-icon">✦</div>
+      <div><strong id="heroAlbumName">My Album</strong><span id="heroAlbumCount">0 photos</span></div>
+    </div>
+
+    <div class="empty-state" id="emptyState" hidden>
+      <div class="empty-icon">▧</div>
+      <h2>No photos here yet</h2>
+      <p>Add photos with the <b>+ Add photos</b> button or place PNG/JPG files in <code>assets/photos/</code>.</p>
+      <label class="primary-btn">Add photos<input id="emptyUpload" type="file" accept="image/png,image/jpeg,image/webp" multiple hidden></label>
+    </div>
+
+    <section class="photo-section">
+      <div class="section-line"><span id="sectionLabel">TODAY</span><span id="visibleCount">0 items</span></div>
+      <div class="photo-grid" id="photoGrid"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div><strong>AuraGallery</strong><span>CodeAlpha Frontend Development Internship • Task 1</span></div>
+    <div><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Local storage</span></div>
+  </footer>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lb-close" id="lbClose">×</button>
+  <button class="lb-arrow left" id="lbPrev">‹</button>
+  <div class="lb-body">
+    <div class="lb-image-wrap"><img id="lbImage" alt=""></div>
+    <div class="lb-details">
+      <div><span class="pill" id="lbCategory">Nature</span><button id="lbFavorite" class="heart">♡</button></div>
+      <h2 id="lbTitle">Photo title</h2>
+      <p id="lbDate">Added today</p>
+      <div class="lb-actions"><button id="lbDownload">↓ Download</button><button id="lbTrash">⌫ Move to bin</button></div>
+    </div>
+  </div>
+  <button class="lb-arrow right" id="lbNext">›</button>
+</div>
+
+<!-- Album modal -->
+<div class="modal" id="albumModal" aria-hidden="true">
+  <div class="modal-card">
+    <button class="modal-close" id="modalClose">×</button>
+    <p class="eyebrow">ORGANIZE</p><h2>Create a new album</h2>
+    <p class="modal-copy">Give your collection a name. You can add selected photos to it anytime.</p>
+    <input id="albumNameInput" type="text" maxlength="30" placeholder="e.g. Family, Travel, University">
+    <div class="modal-actions"><button class="tool-btn" id="modalCancel">Cancel</button><button class="primary-btn" id="createAlbum">Create album</button></div>
+  </div>
+</div>
+
+<!-- Album picker -->
+<div class="modal" id="pickerModal" aria-hidden="true">
+  <div class="modal-card"><button class="modal-close" id="pickerClose">×</button><p class="eyebrow">ADD TO ALBUM</p><h2>Choose an album</h2><div id="pickerList" class="picker-list"></div></div>
+</div>
+
+<div class="toast" id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
